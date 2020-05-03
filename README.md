@@ -1,1 +1,1 @@
-# the-python-bible
+# The Python Bible
