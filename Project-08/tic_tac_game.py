@@ -1,5 +1,6 @@
 # Game Status
 status = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+# status = [" " for i in range(9)]
 
 # Match board
 match_board = [[0,1,2], [3,4,5], [6,7,8], [6,4,2], [2,5,8], [0,3,6], [0,4,8], [1,4,7]]
@@ -38,10 +39,10 @@ def game_status(*match_board):
     # Check for win result
     for item_set in match_board:
         if status[item_set[0]] == status[item_set[1]] == status[item_set[2]] != " ":
-            if status[item_set[0]] == 'x':
-                result= "P1(x)"
+            if status[item_set[0]] == 'X':
+                result= "P1(X)"
             else:
-                result = "P2(o)"
+                result = "P2(O)"
         else:
             continue
     
@@ -66,7 +67,7 @@ while True:
     game_status_disp()
 
     # Current Player
-    current_player = 'P1(x)'
+    current_player = 'P1(X)'
 
     # 9 times lifecycle
     for i in range(0,9):
@@ -74,12 +75,12 @@ while True:
         # get input
         user_input = get_input(current_player)
 
-        if current_player == "P1(x)":
-            status[user_input] = "x"
-            current_player = "P2(o)"
+        if current_player == "P1(X)":
+            status[user_input] = "X"
+            current_player = "P2(O)"
         else:
-            status[user_input] = "o"
-            current_player = "P1(x)"
+            status[user_input] = "O"
+            current_player = "P1(X)"
 
         # Current Status
         game_status_disp()
