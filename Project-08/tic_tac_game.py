@@ -15,27 +15,34 @@ def game_status_disp():
 # Get input
 def get_input(c_player):
     user_input = input(f'{c_player}: Your turn, Enter Position (0-9): ').strip()
+
     if user_input.isnumeric() and int(user_input) > 0 and int(user_input) < 10:
-        return int(user_input)-1
+        if status[int(user_input)-1] != " ":
+            print('Wrong!!! Input already used')
+            return get_input(c_player)
+        else:
+            return int(user_input)-1
     else:
-        print('Wrong!!! Input, Please try again')
+        print('Wrong input!!!, Please try again')
         return get_input(c_player)
 
 # Game Resul Check
 def game_status(*match_board):
+    
     result = "no"
-    if " " not in status:
+
+    for item_set in match_board:
+        if status[item_set[0]] == status[item_set[1]] == status[item_set[2]] != " ":
+            if status[item_set[0]] == 'x':
+                result= "P1(x)"
+            else:
+                result = "P2(o)"
+        else:
+            continue
+
+    if result == "no" and " " not in status:
         print("It's a Draw")
         return 1
-    else:
-        for item_set in match_board:
-            if status[item_set[0]] == status[item_set[1]] == status[item_set[2]] != " ":
-                if status[item_set[0]] == 'x':
-                    result= "P1"
-                else:
-                    result = "P2"
-            else:
-                continue
     
     if result == "no":
         return 0
@@ -46,17 +53,17 @@ def game_status(*match_board):
 
 while True:
     game_status_disp()
-    current_player = 'P1'
+    current_player = 'P1(x)'
     for i in range(0,9):
 
         user_input = get_input(current_player)
 
-        if current_player == "P1":
+        if current_player == "P1(x)":
             status[user_input] = "x"
-            current_player = "P2"
+            current_player = "P2(o)"
         else:
             status[user_input] = "o"
-            current_player = "P1"
+            current_player = "P1(x)"
 
         game_status_disp()
         if game_status(*match_board):
