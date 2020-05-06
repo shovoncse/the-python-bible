@@ -30,7 +30,7 @@ def game_status(*match_board):
     else:
         for item_set in match_board:
             if status[item_set[0]] == status[item_set[1]] == status[item_set[2]] != " ":
-                if status[item_set[0]-1] == 'x':
+                if status[item_set[0]] == 'x':
                     result= "P1"
                 else:
                     result = "P2"
