@@ -16,6 +16,9 @@ class Pound:
     
     def rust(self):
         self.color = "Greenish"
+    
+    def clean(self):
+        self.color = "Gold"
 
 # coin1 = Pound()
 # coin1.color
