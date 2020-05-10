@@ -14,6 +14,8 @@ class Pound:
         else:
             self.value = 1.00
     
+    def rust(self):
+        self.color = "Greenish"
 
 # coin1 = Pound()
 # coin1.color
