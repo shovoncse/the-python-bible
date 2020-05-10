@@ -1,3 +1,5 @@
+from random import choice
+
 class Pound:
 
     def __init__(self,rare=False):
@@ -20,6 +22,12 @@ class Pound:
     def clean(self):
         self.color = "Gold"
 
+    def flip(self):
+        self.heads = choice([True, False])
+
 # coin1 = Pound()
 # coin1.color
 # coin1.color = "Greenish"
+# a = Pound()
+# a.flip()
+# print(a.heads)
