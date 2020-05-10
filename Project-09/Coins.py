@@ -1,5 +1,27 @@
 from random import choice
+# Abstruct Class (Template for all this type class)
+class Coin:
+    def __init__(self, rare= False, clean = True):
+        self.is_rare = rare
+        self.is_clean = clean
+    
+        if self.is_rare:
+            self.value = self.original_value * 1.25
+        else:
+            self.value = self.original_value
+        
+        if self.is_clean:
+            self.color = self.clean_color
+        else:
+            self.value = self.rusty_color
+        
+    def __del__(self):
+        print("Coin Spent!")
 
+
+
+
+# A class that inherite the features from abstruct class
 class Pound:
 
     def __init__(self,rare=False):
