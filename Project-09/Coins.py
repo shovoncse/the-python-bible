@@ -25,9 +25,16 @@ class Pound:
     def flip(self):
         self.heads = choice([True, False])
 
+    def __del__(self):
+        print("Coin Spent")
+
 # coin1 = Pound()
 # coin1.color
 # coin1.color = "Greenish"
-# a = Pound()
-# a.flip()
-# print(a.heads)
+a = Pound()
+a.flip()
+print(a.heads)
+# destructed
+del a
+# not found
+print(a.heads)
